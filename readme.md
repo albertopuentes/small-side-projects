@@ -4,6 +4,8 @@
         Acquire - sample muni trade history from db
         Clean - use Regex/pd.to_datetime to reformat timestamp objects
                 delete unnecessary features
-        Explore - match Buys/Sells by cusip and recreate P&L monthly flows
-            - on a cash basis
-            - on an accrual basis
+        Explore
+            - identify discrepencies and anomalies in trade history
+            - match Buys/Sells by cusip and recreate P&L monthly flows
+                - on a cash basis
+                - on an accrual basis
