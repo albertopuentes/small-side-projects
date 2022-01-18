@@ -1,4 +1,5 @@
 import time
+from playsound import playsound
     
 def countdown(t):
     while t:
@@ -7,7 +8,9 @@ def countdown(t):
         print(timer, end="\r")
         time.sleep(1)
         t -= 1
+    playsound('/Users/albertopuentes/Music/Music/Media.localized/Music/Unknown Artist/Unknown Album/Tolling_Bell.wav')
     print('Timer Completed')
+    
 
 t = input("Enter the time in seconds: ")
 
