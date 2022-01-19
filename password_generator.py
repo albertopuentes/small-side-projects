@@ -2,6 +2,11 @@ import random
 
 print('Password Generator')
 
-chars = 'abcdefghijklmnqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@$%^&*().,'
+chars = 'abcdefghijklmnqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@$%^&*().,?0123456789'
 number = input('Number of passwords: ')
-number = int()
+number = int(number)
+
+length = input('Input your password length:')
+length = int(length)
+
+print('\nhere are your passwords:')
