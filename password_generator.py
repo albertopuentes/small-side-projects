@@ -18,7 +18,7 @@ number = int(number)
 length = input('Password length?')
 length = int(length)
 
-min_lower = ing(input('Min lower case letters?'))
+min_lower = int(input('Min lower case letters?'))
 min_upper = int(input('Min upper case letters?'))
 min_symbol = int(input('Min symbols?'))
 min_num = int(input('Min Numbers?'))
@@ -29,7 +29,18 @@ print('\nHere are the passwords:')
 
 for pwd in range(number):
     passwords = ''
-    for c in range(length):
-        passwords += random.choice(lower)+random.choice(upper)+random.choice(symbol)+random.choice(numeric)
+    for c in range(min_lower):
+        passwords.append(random.choice(lower))
+    for c in range(min_upper):
+        passwords.append(random.choice(upper))
+    for c in range(min_symbol):
+        passwords.append(random.choice(symbol))
+    for c in range(min_num):
+        passwords.append(random.choice(numeric))
+
+if char_count < length:
+    random.shuffle(lower, upper, symbol, numeric)
+    for i in range(length - char_count):
+        passwords.append(random.choice)
     print(passwords)
 
