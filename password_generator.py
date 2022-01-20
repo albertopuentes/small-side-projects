@@ -11,6 +11,7 @@ symbol = '!@$%^&*().,?'
 symbol = str(symbol)
 numeric = '0123456789'
 numeric = str(numeric)
+options = lower+upper+symbol+numeric
 
 number = input('Number of passwords needed?')
 number = int(number)
@@ -23,12 +24,12 @@ min_upper = int(input('Min upper case letters?'))
 min_symbol = int(input('Min symbols?'))
 min_num = int(input('Min Numbers?'))
 
-char_count = min_lower+min_upper+min_symbol+min_number
+char_count = min_lower+min_upper+min_symbol+min_num
 
 print('\nHere are the passwords:')
 
 for pwd in range(number):
-    passwords = ''
+    passwords = []
     for c in range(min_lower):
         passwords.append(random.choice(lower))
     for c in range(min_upper):
@@ -37,10 +38,14 @@ for pwd in range(number):
         passwords.append(random.choice(symbol))
     for c in range(min_num):
         passwords.append(random.choice(numeric))
+    if char_count < length:
+        for i in range(length - char_count):
+            passwords.append(random.choice(options))
+        print(passwords)
 
-if char_count < length:
-    random.shuffle(lower, upper, symbol, numeric)
-    for i in range(length - char_count):
-        passwords.append(random.choice)
-    print(passwords)
+#for pwd in range(number):
+  #  if char_count < length:
+   #     for i in range(length - char_count):
+    #        passwords.append(random.choice(options))
+    #    print(passwords)
 
