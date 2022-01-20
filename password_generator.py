@@ -44,9 +44,5 @@ for pwd in range(number):
             passwords += random.choice(options)
         print(passwords)
 
-#for pwd in range(number):
-  #  if char_count < length:
-   #     for i in range(length - char_count):
-    #        passwords.append(random.choice(options))
-    #    print(passwords)
+
 
