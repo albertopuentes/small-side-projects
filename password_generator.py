@@ -29,18 +29,19 @@ char_count = min_lower+min_upper+min_symbol+min_num
 print('\nHere are the passwords:')
 
 for pwd in range(number):
-    passwords = []
+    passwords = ''
     for c in range(min_lower):
-        passwords.append(random.choice(lower))
+        passwords += random.choice(lower)
     for c in range(min_upper):
-        passwords.append(random.choice(upper))
+        passwords += random.choice(upper)
     for c in range(min_symbol):
-        passwords.append(random.choice(symbol))
+        passwords += random.choice(symbol)
     for c in range(min_num):
-        passwords.append(random.choice(numeric))
+        passwords += random.choice(numeric)
+
     if char_count < length:
         for i in range(length - char_count):
-            passwords.append(random.choice(options))
+            passwords += random.choice(options)
         print(passwords)
 
 #for pwd in range(number):
