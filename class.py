@@ -54,7 +54,7 @@ class PetStore:
     '''petstore houses our abstract factory'''
 
     def __init__(self, pet_factory=None):
-        '''pet_factory is our abstract factory'''
+        '''pet_factory is our gi.abstract factory'''
         self._pet_factory = pet_factory
 
     def show_pet(self):
