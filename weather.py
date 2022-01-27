@@ -1,4 +1,4 @@
-from pws import WeatherMap_IP 
+from api import WeatherMap_IP 
 
 import requests
 from pprint import pprint
