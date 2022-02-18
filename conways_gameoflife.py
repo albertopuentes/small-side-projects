@@ -47,9 +47,9 @@ for x in range(width):
             num_neighbors += 1 # right neighbor is alive
         if current_cells[left_coord][below_coord] == '#':
             num_neighbors += 1 # bottom-left neighbor is alive
-        if current_cells[x][below_coord] == '#'
+        if current_cells[x][below_coord] == '#':
             num_neighbors += 1 # bottom neighbor is alive
-        if current_cells[right_coord][bottom_coord] == '#'
+        if current_cells[right_coord][bottom_coord] == '#':
             num_neighbors += 1 # bottom-right neighbor is alive
 
         # set cell bas on conway's game of life rules:
