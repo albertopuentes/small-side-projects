@@ -17,14 +17,22 @@ where c.company_code = l.company_code
 group by c.company_code
 order by c.company_code
 
-#2nd attempt
+#2nd attempt (answer)
 select c.company_code, 
-        c.founder, 
-        count(DISTINCT l.lead_manager_code), 
-        count(DISTINCT s.senior_manager_code), 
-        count(DISTINCT m.manager_code), 
-        count(DISTINCT e.employee_code)
+    c.founder, 
+    count(DISTINCT e.lead_manager_code), 
+    count(DISTINCT e.senior_manager_code), 
+    count(DISTINCT e.manager_code), 
+    count(DISTINCT e.employee_code)
 from Company c
-    inner join Employees e on c.company_code = e.company_code
-group by c.company_code
+    inner join Employee e on c.company_code = e.company_code
+group by c.company_code, c.founder
 order by c.company_code
+
+# Query the following two values from the STATION table:
+# The sum of all values in LAT_N rounded to a scale of  decimal places.
+# The sum of all values in LONG_W rounded to a scale of  decimal places 
+
+select round(sum(LAT_N), 2), 
+    round(sum(LONG_W), 2)
+from STATION
