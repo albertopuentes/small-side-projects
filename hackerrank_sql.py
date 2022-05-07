@@ -58,3 +58,28 @@ where LAT_N < 137.2345;
 select round(LONG_W, 4)
 from STATION
 where LAT_N = (select max(LAT_N) from STATION where LAT_N < 137.2345);
+
+#Query the smallest Northern Latitude (LAT_N) from 
+# STATION that is greater than . Round your answer to  decimal places.
+
+select round(min(LAT_N), 4)
+from STATION
+where LAT_N > 38.7780;
+
+# Query the Western Longitude (LONG_W)where the smallest 
+# Northern Latitude (LAT_N) in STATION is greater than . Round your answer to  decimal places.
+
+select round(LONG_W, 4)
+from STATION
+where LAT_N = (select min(LAT_N) from STATION where LAT_N > 38.7780);
+
+#Consider  and  to be two points on a 2D plane.
+
+ #happens to equal the minimum value in Northern Latitude (LAT_N in STATION).
+ #happens to equal the minimum value in Western Longitude (LONG_W in STATION).
+ #happens to equal the maximum value in Northern Latitude (LAT_N in STATION).
+ #happens to equal the maximum value in Western Longitude (LONG_W in STATION).
+#Query the Manhattan Distance between points  and  and round it to a scale of  decimal places.
+
+select round((max(LAT_N)-min(LAT_N)) + (max(LONG_W)-min(LONG_W)), 4)
+from STATION
