@@ -83,3 +83,13 @@ where LAT_N = (select min(LAT_N) from STATION where LAT_N > 38.7780);
 
 select round((max(LAT_N)-min(LAT_N)) + (max(LONG_W)-min(LONG_W)), 4)
 from STATION
+
+#Consider  and  to be two points on a 2D plane where  are the respective minimum and maximum values of Northern Latitude (LAT_N) and  are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.
+# Query the Euclidean Distance between points  and  and format your answer to display  decimal digits.
+
+select round(
+    sqrt(
+    power(max(LAT_N)-min(LAT_N), 2) + 
+    power(max(LONG_W)-min(LONG_W), 2)
+    ), 4)
+from STATION;
