@@ -136,3 +136,17 @@ where s.score = d.score and c.difficulty_level = d.difficulty_level
 group by s.hacker_id, h.name
 having count(s.hacker_id) > 1
 order by count(s.hacker_id) desc, s.hacker_id
+
+#Harry Potter and his friends are at Ollivander's with Ron, finally replacing Charlie's old broken wand.
+# Hermione decides the best way to choose is by determining the minimum number of gold galleons needed to buy each non-evil wand of high power and age. Write a query to print the id, age, coins_needed, and power of the wands that Ron's interested in, sorted in order of descending power. If more than one wand has same power, sort the result in order of descending age
+
+select w.id, wp.age, s.min_coins_needed, s.power
+from (select code, power, min(coins_needed) as min_coins_needed
+  from wands
+  group by power, code) as s 
+left join wands w
+  on w.coins_needed = s.min_coins_needed and w.code = s.code and w.power = s.power
+left join wands_property as wp 
+  on w.code = wp.code 
+where wp.is_evil = 0
+order by s.power desc, wp.age desc
