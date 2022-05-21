@@ -17,3 +17,12 @@ GROUP BY date
 ORDER BY date) t
 WHERE (non_paying - paying) > 0
 ORDER BY t.date ASC;
+
+#Question: Find all number pairs whose first number is smaller than the second one and the product of two numbers is larger than 11.
+#Output both numbers in the combination.
+
+SELECT DISTINCT n1.number AS num1, n2.number AS num2
+FROM transportation_numbers n1
+INNER JOIN transportation_numbers n2 ON n1.index <> n2.index
+WHERE n1.number < n2.number
+AND n1.number * n2.number > 11;
