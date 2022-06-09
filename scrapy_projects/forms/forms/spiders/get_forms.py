@@ -1,10 +1,15 @@
 import scrapy
 
+def generate_start_urls():
+    names = ['Alice', 'Bob', 'Charles']
+    quests = ['to seek the grail', 'to learn Python', ' to scrape the web']
+    return ['http://pythonscraping.com/linkedin/formAction.php?name={}&quest={}&color=blue'.format(name, quest) for name in names for quest in quests]
+
 
 class GetFormsSpider(scrapy.Spider):
     name = 'get_forms'
     allowed_domains = ['pythonscraping.com']
-    start_urls = ['http://pythonscraping.com/']
+    start_urls = generate_start_urls()
 
     def parse(self, response):
-        pass
+        return{'text': response.xpath('//div[@class="wrapper"]/text()').get()}
